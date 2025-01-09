@@ -27,4 +27,4 @@ dist-ssr
 .replit
 
 .env
-src/firebase.js
+# src/firebase.js
