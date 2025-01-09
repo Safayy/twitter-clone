@@ -2,8 +2,8 @@ import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   getAuth,
-  signInWithEmailAndPassword
-} from 'firebase/auth'
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { useContext, useEffect, useState } from "react";
 import { Button, Col, Form, Image, Modal, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -13,8 +13,8 @@ import { AuthContext } from "../components/AuthProvider";
 
 export default function AuthPage() {
   const loginImage = "https://sig1.co/img-twitter-1";
-  const auth = getAuth()
-  const { currentUser } = useContext(AuthContext)
+  const auth = getAuth();
+  const { currentUser } = useContext(AuthContext);
   const url =
     "https://4e5a7f08-7622-4e75-b560-957c5bd89906-00-19z6374rnum63.sisko.repl.co";
   // values: null (no modal show), "login", "signup"
@@ -38,7 +38,7 @@ export default function AuthPage() {
         auth,
         username,
         password
-      )
+      );
       console.log(res.user);
     } catch (error) {
       console.error(error);
@@ -48,7 +48,7 @@ export default function AuthPage() {
     e.preventDefault();
     try {
       // const res = await axios.post(`${url}/login`, { username, password });
-      await signInWithEmailAndPassword(auth, username, password)
+      await signInWithEmailAndPassword(auth, username, password);
       // res.data is not empty and auth is true, and token is not empty
       // if (res.data && res.data.auth === true && res.data.token) {
       //   setAuthToken(res.data.token);
@@ -85,6 +85,9 @@ export default function AuthPage() {
           </Button>
           <Button className="rounded-pill" variant="outline-dark">
             <i className="bi bi-apple"></i> Sign up with Apple
+          </Button>
+          <Button className="rounded-pill" variant="outline-dark">
+            <i className="bi bi-facebook"></i> Sign up with Facebook
           </Button>
           <p style={{ textAlign: "center" }}>or</p>
           <Button className="rounded-pill" onClick={handleShowSignUp}>
